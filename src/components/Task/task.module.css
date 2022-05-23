@@ -1,3 +1,11 @@
 .task {
-  /* Sample  */
+ display: flex;
+ justify-content: space-between;
+ width:300px;
+}
+.nor{
+  text-decoration: none;
+}
+.strike{
+  text-decoration: line-through;
 }

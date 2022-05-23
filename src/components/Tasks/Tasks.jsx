@@ -1,16 +1,23 @@
 import React from "react";
 import styles from "./tasks.module.css";
+import Task from "../Task/Task"
+import {GiEmptyMetalBucket} from "react-icons/gi"
+const Tasks = ({todos ,DeleteTask}) => {
 
-const Tasks = () => {
-  // NOTE: do not delete `data-cy` key value pair
   return (
     <>
+    {todos.length!==0?
       <ul data-cy="tasks" className={styles.tasks}>
-        {/* Task List */}
+       {todos.map((task) =>(
+         <Task key={task.id} {...task} DeleteTask={DeleteTask} ></Task>
+       ))}
       </ul>
+      :
       <div data-cy="tasks-empty" className={styles.empty}>
-        {/* Show when No Tasks are present */}
+        <GiEmptyMetalBucket></GiEmptyMetalBucket>
+        <h3>Nothing Here,its empty</h3>
       </div>
+}
     </>
   );
 };
